@@ -54,7 +54,7 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-3 mb-8">
-                  {['Access to all course materials', 'Weekly live sessions', 'Community Discord access', 'Email support', 'Certificate upon completion'].map((feature, idx) => (
+                  {['1 Vendor of your choice', '1 call to decide vendor order choice', '2 classes a week', '1 checkup at the end of the week', 'Access to all course materials', 'Community Discord access', 'Email support', 'Certificate upon completion'].map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mt-0.5">
                         <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,7 +109,7 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-3 mb-8">
-                  {['Everything in Premium', '1-on-1 mentorship sessions', 'Priority support 24/7', 'Exclusive resources & templates', 'Lifetime course access', 'Job placement assistance'].map((feature, idx) => (
+                  {['1 Vendor of your choice', '1 call to decide vendor order choice', '2 classes a week', '1 checkup at the end of the week', '1-on-1 mentorship sessions', 'Priority support 24/7', 'Exclusive resources & templates', 'Lifetime course access', 'Job placement assistance'].map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 flex items-center justify-center mt-0.5 shadow-lg shadow-pink-500/50">
                         <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
