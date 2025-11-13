@@ -30,128 +30,103 @@ export default function Home() {
           </div>
 
           {/* Course Cards - Main Course + Pricing Plans */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {/* Main Course */}
-            <div className="group relative bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 rounded-2xl overflow-hidden border-2 border-purple-500 hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative h-48 bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(139,92,246,0.4),transparent_50%)]"></div>
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(59,130,246,0.4),transparent_50%)]"></div>
-                <div className="relative text-5xl font-black text-white/30">PREMIUM</div>
-              </div>
-              <div className="relative p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="inline-block px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-xs font-bold">
-                    ✨ CUSTOMIZABLE
-                  </div>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-3">
-                  Your Custom Course
-                </h3>
-                <div className="text-gray-400 text-sm mb-6 space-y-2">
-                  <p className="font-semibold text-gray-300">Base Package:</p>
-                  <ul className="space-y-1 text-xs">
-                    <li>• 1 Vendor of choice</li>
-                    <li>• Vendor order call</li>
-                    <li>• 2 classes/week</li>
-                    <li>• Weekly checkup</li>
-                  </ul>
-                  <p className="text-purple-400 text-xs mt-3 font-semibold">+ Add-ons available!</p>
-                </div>
-                <div className="mb-4">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-sm text-gray-400">From</span>
-                    <span className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400">$499</span>
-                  </div>
-                </div>
-                <Link
-                  href="/courses/select"
-                  className="block w-full text-center px-6 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 hover:from-purple-500 hover:via-pink-500 hover:to-blue-500 text-white rounded-xl font-bold transition-all duration-300 shadow-lg shadow-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/70"
-                >
-                  Customize Course
-                </Link>
-              </div>
-            </div>
-
-            {/* Basic Plan */}
-            <div className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border-2 border-blue-500/30 rounded-2xl overflow-hidden hover:border-blue-500/60 transition-all duration-300 hover:scale-105">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Premium Plan - $499 */}
+            <div className="group relative bg-gradient-to-br from-blue-900/50 to-cyan-900/50 backdrop-blur-sm border-2 border-blue-500/40 rounded-2xl overflow-hidden hover:border-blue-400 transition-all duration-300 hover:scale-105 shadow-xl shadow-blue-500/20">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-              <div className="relative p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">Basic Plan</h3>
-                <p className="text-gray-400 mb-4 text-sm">Perfect for getting started</p>
-
+              <div className="relative p-8">
                 <div className="mb-4">
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">$500</span>
-                    <span className="text-gray-400 text-sm">/ 1 month</span>
+                  <div className="inline-block px-4 py-1.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full text-white text-xs font-bold mb-4">
+                    ⚡ POPULAR CHOICE
                   </div>
-                  <div className="text-xs text-gray-300">
-                    <span className="font-semibold">Renew for $250/mo</span>
+                </div>
+                <h3 className="text-3xl font-bold text-white mb-3">Premium Plan</h3>
+                <p className="text-gray-300 mb-6 text-sm">Perfect for getting started</p>
+
+                <div className="mb-8">
+                  <div className="flex items-baseline gap-3 mb-3">
+                    <span className="text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500">$499</span>
+                    <div className="flex flex-col">
+                      <span className="text-gray-300 text-base font-semibold">for one month</span>
+                      <span className="text-gray-400 text-xs">Renew for $250/mo</span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="space-y-2 mb-6">
-                  {['All course materials', 'Weekly live sessions', 'Discord community', 'Email support', 'Certificate'].map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-2">
-                      <div className="flex-shrink-0 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mt-0.5">
-                        <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="space-y-3 mb-8">
+                  {['Access to all course materials', 'Weekly live sessions', 'Community Discord access', 'Email support', 'Certificate upon completion'].map((feature, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mt-0.5">
+                        <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <span className="text-gray-300 text-xs">{feature}</span>
+                      <span className="text-gray-200 text-sm font-medium">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 <Link
                   href="/courses/select"
-                  className="block w-full text-center py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/50"
-                >
-                  Choose Basic
-                </Link>
-              </div>
-            </div>
-
-            {/* Premium Plan */}
-            <div className="group relative bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-sm border-2 border-purple-500 rounded-2xl overflow-hidden hover:border-purple-400 transition-all duration-300 hover:scale-105 shadow-xl shadow-purple-500/20">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                <div className="px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-xs font-bold">
-                  ⭐ BEST VALUE
-                </div>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-              <div className="relative p-6 pt-8">
-                <h3 className="text-2xl font-bold text-white mb-2">Premium Plan</h3>
-                <p className="text-gray-400 mb-4 text-sm">For committed learners</p>
-
-                <div className="mb-4">
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400">$700</span>
-                    <span className="text-gray-400 text-sm">/ 2 months</span>
-                  </div>
-                  <div className="text-xs text-gray-300">
-                    <span className="font-semibold">Renew for $150/mo</span>
-                  </div>
-                </div>
-
-                <div className="space-y-2 mb-6">
-                  {['Everything in Basic', '1-on-1 mentorship', 'Priority support', 'Exclusive resources', 'Lifetime access', 'Job placement'].map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-2">
-                      <div className="flex-shrink-0 w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mt-0.5">
-                        <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <span className="text-gray-300 text-xs">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <Link
-                  href="/courses/select"
-                  className="block w-full text-center py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 hover:from-purple-500 hover:via-pink-500 hover:to-blue-500 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-purple-500/50"
+                  className="block w-full text-center py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 text-lg"
                 >
                   Choose Premium
+                </Link>
+              </div>
+            </div>
+
+            {/* Elite Plan - $700 */}
+            <div className="group relative bg-gradient-to-br from-purple-900/60 via-pink-900/50 to-blue-900/60 backdrop-blur-sm border-2 border-purple-500 rounded-2xl overflow-hidden hover:border-pink-400 transition-all duration-300 hover:scale-105 shadow-2xl shadow-purple-500/30">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                <div className="px-5 py-2 bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-500 rounded-full text-white text-sm font-black shadow-xl">
+                  ⭐ BEST VALUE ⭐
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/15 via-pink-500/10 to-blue-500/15 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+              <div className="absolute top-0 left-0 w-full h-full">
+                <div className="absolute top-10 right-10 w-32 h-32 bg-pink-500/20 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-10 left-10 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl"></div>
+              </div>
+              <div className="relative p-8 pt-10">
+                <div className="mb-4">
+                  <div className="inline-block px-4 py-1.5 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 rounded-full text-white text-xs font-bold mb-4">
+                    💎 ELITE PACKAGE
+                  </div>
+                </div>
+                <h3 className="text-3xl font-bold text-white mb-3 bg-clip-text text-transparent bg-gradient-to-r from-white via-pink-200 to-purple-200">
+                  Elite Plan
+                </h3>
+                <p className="text-gray-200 mb-6 text-sm font-medium">For serious learners who want it all</p>
+
+                <div className="mb-8">
+                  <div className="flex items-baseline gap-3 mb-3">
+                    <span className="text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400">$700</span>
+                    <div className="flex flex-col">
+                      <span className="text-gray-200 text-base font-semibold">for 2 months</span>
+                      <span className="text-purple-300 text-xs font-semibold">Renew for $150/mo</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-3 mb-8">
+                  {['Everything in Premium', '1-on-1 mentorship sessions', 'Priority support 24/7', 'Exclusive resources & templates', 'Lifetime course access', 'Job placement assistance'].map((feature, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 flex items-center justify-center mt-0.5 shadow-lg shadow-pink-500/50">
+                        <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="text-gray-100 text-sm font-medium">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link
+                  href="/courses/select"
+                  className="block w-full text-center py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 hover:from-purple-500 hover:via-pink-500 hover:to-purple-600 text-white font-black rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-pink-500/60 text-lg relative overflow-hidden group"
+                >
+                  <span className="relative z-10">Choose Elite</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-pink-400/0 via-pink-400/30 to-pink-400/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                 </Link>
               </div>
             </div>
