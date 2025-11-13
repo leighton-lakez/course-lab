@@ -1,188 +1,283 @@
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
 
-export default async function Home() {
-  const featuredCourses = await prisma.course.findMany({
-    where: {
-      featured: true,
-      published: true,
-    },
-    take: 3,
-  });
-
+export default function Home() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Unlock Your Potential
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      {/* Hero Section with Courses */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
+        {/* Animated background */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(76,29,149,0.3),rgba(0,0,0,0))]"></div>
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-1/4 left-1/2 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Hero Title */}
+          <div className="text-center mb-20">
+            <div className="inline-block mb-6 px-4 py-2 bg-purple-500/20 backdrop-blur-sm rounded-full border border-purple-500/30">
+              <span className="text-purple-300 text-sm font-medium">✨ Transform Your Future</span>
+            </div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-purple-400">
+              Unlock Your
+              <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400">Potential</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Learn from industry experts and master new skills
+            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+              Master high-income skills with industry experts
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/courses"
-                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-              >
-                Browse Courses
-              </Link>
-              <Link
-                href="/about"
-                className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
-              >
-                Learn More
-              </Link>
+          </div>
+
+          {/* Single Course */}
+          <div className="flex justify-center max-w-2xl mx-auto">
+            {/* Main Course */}
+            <div className="group relative bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 rounded-2xl overflow-hidden border-2 border-purple-500 hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative h-56 bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(139,92,246,0.4),transparent_50%)]"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(59,130,246,0.4),transparent_50%)]"></div>
+                <div className="relative text-6xl font-black text-white/30">PREMIUM</div>
+              </div>
+              <div className="relative p-8">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="inline-block px-4 py-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-xs font-bold">
+                    ✨ CUSTOMIZABLE
+                  </div>
+                </div>
+                <h3 className="text-3xl font-bold text-white mb-3">
+                  Your Custom Course
+                </h3>
+                <div className="text-gray-400 text-sm mb-6 space-y-2">
+                  <p className="font-semibold text-gray-300">Base Package Includes:</p>
+                  <ul className="space-y-1 text-xs">
+                    <li>• 1 Vendor of your choice</li>
+                    <li>• 1 call to decide vendor order choice</li>
+                    <li>• 2 classes a week (Marketing tactics and audience control)</li>
+                    <li>• 1 checkup at the end of the week</li>
+                  </ul>
+                  <p className="text-purple-400 text-xs mt-4 font-semibold">+ Customize with add-ons!</p>
+                </div>
+                <div className="mb-6">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-sm text-gray-400">Starting at</span>
+                    <span className="text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400">$499</span>
+                  </div>
+                </div>
+                <Link
+                  href="/courses/select"
+                  className="block w-full text-center px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 hover:from-purple-500 hover:via-pink-500 hover:to-blue-500 text-white rounded-xl font-bold transition-all duration-300 shadow-lg shadow-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/70"
+                >
+                  Customize Your Course
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Courses */}
-      <section className="py-16 bg-gray-50">
+      {/* Pricing Plans */}
+      <section className="py-32 bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Featured Courses
-          </h2>
-          {featuredCourses.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredCourses.map((course) => (
-                <div
-                  key={course.id}
-                  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow"
-                >
-                  <div className="h-48 bg-gradient-to-br from-blue-500 to-indigo-600"></div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">
-                      {course.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4">{course.description}</p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-2xl font-bold text-blue-600">
-                        ${course.price}
-                      </span>
-                      <Link
-                        href={`/courses/${course.id}`}
-                        className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
-                      >
-                        Learn More
-                      </Link>
-                    </div>
+          <div className="text-center mb-16">
+            <div className="inline-block mb-6 px-4 py-2 bg-blue-500/20 backdrop-blur-sm rounded-full border border-blue-500/30">
+              <span className="text-blue-300 text-sm font-medium">💎 Flexible Pricing</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-400">
+              Choose Your Plan
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Select the perfect plan that fits your learning style and budget
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Basic Plan */}
+            <div className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border-2 border-blue-500/30 rounded-2xl p-8 hover:border-blue-500/60 transition-all duration-300 hover:scale-105">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+              <div className="relative">
+                <h3 className="text-2xl font-bold text-white mb-2">Basic Plan</h3>
+                <p className="text-gray-400 mb-6">Perfect for getting started</p>
+
+                <div className="mb-6">
+                  <div className="flex items-baseline gap-2 mb-3">
+                    <span className="text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">$500</span>
+                    <span className="text-gray-400">for 1 month</span>
+                  </div>
+                  <div className="text-sm text-gray-300">
+                    <span className="font-semibold">Renew for $250/month</span>
+                    <span className="text-gray-400"> at the end of each month</span>
                   </div>
                 </div>
-              ))}
+
+                <div className="space-y-3 mb-8">
+                  {['Access to all course materials', 'Weekly live sessions', 'Community Discord access', 'Email support', 'Certificate upon completion'].map((feature, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mt-0.5">
+                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="text-gray-300 text-sm">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link
+                  href="/courses/select"
+                  className="block w-full text-center py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/50"
+                >
+                  Choose Basic Plan
+                </Link>
+              </div>
             </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-gray-600 text-lg mb-6">
-                No featured courses yet. Check back soon!
-              </p>
-              <Link
-                href="/courses"
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-block"
-              >
-                View All Courses
-              </Link>
+
+            {/* Premium Plan */}
+            <div className="group relative bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-sm border-2 border-purple-500 rounded-2xl p-8 hover:border-purple-400 transition-all duration-300 hover:scale-105 shadow-xl shadow-purple-500/20">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                <div className="px-4 py-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-xs font-bold">
+                  ⭐ RECOMMENDED
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+              <div className="relative">
+                <h3 className="text-2xl font-bold text-white mb-2">Premium Plan</h3>
+                <p className="text-gray-400 mb-6">Best value for committed learners</p>
+
+                <div className="mb-6">
+                  <div className="flex items-baseline gap-2 mb-3">
+                    <span className="text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400">$700</span>
+                    <span className="text-gray-400">for 2 months</span>
+                  </div>
+                  <div className="text-sm text-gray-300">
+                    <span className="font-semibold">Renew for $150/month</span>
+                    <span className="text-gray-400"> at the end of each month</span>
+                  </div>
+                </div>
+
+                <div className="space-y-3 mb-8">
+                  {['Everything in Basic Plan', '1-on-1 mentorship sessions', 'Priority support', 'Exclusive resources & templates', 'Lifetime course access', 'Job placement assistance'].map((feature, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mt-0.5">
+                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="text-gray-300 text-sm">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link
+                  href="/courses/select"
+                  className="block w-full text-center py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 hover:from-purple-500 hover:via-pink-500 hover:to-blue-500 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-purple-500/50"
+                >
+                  Choose Premium Plan
+                </Link>
+              </div>
             </div>
-          )}
+          </div>
+
+          <div className="mt-12 text-center text-sm text-gray-400">
+            <p>All plans include a 7-day money-back guarantee</p>
+            <p className="mt-2">Cancel anytime, no questions asked</p>
+          </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16">
+      <section className="py-32 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Why Choose CourseLab?
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-purple-400">
+              Why Choose CourseLab?
+            </h2>
+            <p className="text-gray-400 text-lg">
+              Everything you need to succeed in your learning journey
+            </p>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  />
-                </svg>
+            <div className="group relative bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500/50 transition-all duration-300 hover:scale-105">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <svg
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3">Expert Instructors</h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Learn from industry professionals with years of real-world experience
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Expert Instructors</h3>
-              <p className="text-gray-600">
-                Learn from industry professionals with years of experience
-              </p>
             </div>
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+
+            <div className="group relative bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-300 hover:scale-105">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <svg
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3">
+                  Flexible Learning
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Study at your own pace with lifetime access to all course materials
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-2">
-                Flexible Learning
-              </h3>
-              <p className="text-gray-600">
-                Study at your own pace with lifetime access to materials
-              </p>
             </div>
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
+
+            <div className="group relative bg-slate-800/50 backdrop-blur-sm border border-pink-500/20 rounded-2xl p-8 hover:border-pink-500/50 transition-all duration-300 hover:scale-105">
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <svg
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3">Community Support</h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Connect with fellow learners and get support whenever you need it
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Community Support</h3>
-              <p className="text-gray-600">
-                Connect with fellow learners and get help when you need it
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to Start Learning?
-          </h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Join thousands of students already learning with us
-          </p>
-          <Link
-            href="/auth/signup"
-            className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors inline-block"
-          >
-            Get Started Today
-          </Link>
-        </div>
-      </section>
     </div>
   );
 }
