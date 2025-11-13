@@ -78,8 +78,8 @@ export default function Home() {
             {/* Elite Plan - $700 */}
             <div className="group relative bg-gradient-to-br from-purple-900/60 via-pink-900/50 to-blue-900/60 backdrop-blur-sm border-2 border-purple-500 rounded-2xl overflow-hidden hover:border-pink-400 transition-all duration-300 hover:scale-105 shadow-2xl shadow-purple-500/30">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                <div className="px-5 py-2 bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-500 rounded-full text-white text-sm font-black shadow-xl">
-                  ⭐ BEST VALUE ⭐
+                <div className="px-5 py-2 bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-500 rounded-full text-white text-sm font-black shadow-xl flex items-center justify-center">
+                  BEST VALUE
                 </div>
               </div>
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/15 via-pink-500/10 to-blue-500/15 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
