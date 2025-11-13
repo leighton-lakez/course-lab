@@ -41,7 +41,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-3">Premium Plan</h3>
-                <p className="text-gray-300 mb-6 text-sm">Perfect for getting started</p>
+                <p className="text-gray-300 mb-6 text-sm">Best value for committed learners</p>
 
                 <div className="mb-8">
                   <div className="flex items-baseline gap-3 mb-3">
