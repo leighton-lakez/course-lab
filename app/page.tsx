@@ -96,7 +96,7 @@ export default function Home() {
                 <h3 className="text-3xl font-bold text-white mb-3 bg-clip-text text-transparent bg-gradient-to-r from-white via-pink-200 to-purple-200">
                   Elite Plan
                 </h3>
-                <p className="text-gray-200 mb-6 text-sm font-medium">For serious learners who want it all</p>
+                <p className="text-gray-200 mb-6 text-sm font-medium">Best value for committed learners</p>
 
                 <div className="mb-8">
                   <div className="flex items-baseline gap-3 mb-3">
