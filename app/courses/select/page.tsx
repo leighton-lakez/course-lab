@@ -1,9 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 export default function CourseSelectPage() {
+  const searchParams = useSearchParams();
+  const planParam = searchParams.get("plan") || "premium";
+
   const [selectedVendors, setSelectedVendors] = useState<string[]>([]);
   const [selectedClasses, setSelectedClasses] = useState(0);
   const [addOns, setAddOns] = useState({
@@ -13,9 +17,14 @@ export default function CourseSelectPage() {
     prioritySupport: false,
   });
 
+  const plans = {
+    premium: { name: "Premium Plan", price: 499 },
+    elite: { name: "Elite Plan", price: 700 },
+  };
+
   const baseCourse = {
-    name: "Custom Course Package",
-    price: 499,
+    name: plans[planParam as keyof typeof plans]?.name || plans.premium.name,
+    price: plans[planParam as keyof typeof plans]?.price || plans.premium.price,
     includes: [
       "1 Vendor of your choice",
       "1 call to decide vendor order choice",
@@ -168,9 +177,9 @@ export default function CourseSelectPage() {
 
             {/* Add More Classes */}
             <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8">
-              <h2 className="text-3xl font-bold text-white mb-4">Add More Classes</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Upgrade Your Plan</h2>
               <p className="text-gray-400 mb-6">
-                Your base course includes 2 classes per week. Upgrade to get more:
+                Your base course includes 2 classes per week. Choose an upgrade:
               </p>
 
               <div className="space-y-4">
@@ -186,9 +195,9 @@ export default function CourseSelectPage() {
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="w-6 h-6 rounded-full border-2 flex items-center justify-center ${
+                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
                           selectedClasses === pkg.count ? 'border-purple-500 bg-purple-500' : 'border-slate-600'
-                        }">
+                        }`}>
                           {selectedClasses === pkg.count && (
                             <span className="text-white text-xs">✓</span>
                           )}
@@ -309,7 +318,7 @@ export default function CourseSelectPage() {
               </div>
 
               <Link
-                href={`/courses/checkout?vendors=${selectedVendors.join(',')}&classes=${selectedClasses}&website=${addOns.website}&advertisingManagement=${addOns.advertisingManagement}&extraCheckup=${addOns.extraCheckup}&prioritySupport=${addOns.prioritySupport}`}
+                href={`/courses/checkout?plan=${planParam}&vendors=${selectedVendors.join(',')}&classes=${selectedClasses}&website=${addOns.website}&advertisingManagement=${addOns.advertisingManagement}&extraCheckup=${addOns.extraCheckup}&prioritySupport=${addOns.prioritySupport}`}
                 className="block w-full py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50 text-center"
               >
                 Proceed to Checkout

@@ -6,25 +6,59 @@ import { useRef } from "react";
 
 export default function CheckoutPage() {
   const searchParams = useSearchParams();
-  const courseParam = searchParams.get("course") as "grey" | "blue" | "gold" | null;
+  const planParam = searchParams.get("plan") || "premium";
   const vendorsParam = searchParams.get("vendors");
-  const extraVendorParam = searchParams.get("extraVendor") === "true";
+  const classesParam = searchParams.get("classes");
   const websiteParam = searchParams.get("website") === "true";
+  const advertisingManagementParam = searchParams.get("advertisingManagement") === "true";
+  const extraCheckupParam = searchParams.get("extraCheckup") === "true";
+  const prioritySupportParam = searchParams.get("prioritySupport") === "true";
   const summaryRef = useRef<HTMLDivElement>(null);
 
   const selectedVendors = vendorsParam ? vendorsParam.split(",").filter(Boolean) : [];
+  const selectedClasses = parseInt(classesParam || "0");
+
+  const plans = {
+    premium: { name: "Premium Plan", price: 499 },
+    elite: { name: "Elite Plan", price: 700 },
+  };
+
+  const baseCourse = {
+    name: plans[planParam as keyof typeof plans]?.name || plans.premium.name,
+    price: plans[planParam as keyof typeof plans]?.price || plans.premium.price,
+  };
+
+  const vendors = [
+    { id: "technology", name: "Technology Vendor", price: 25 },
+    { id: "chrome-hearts", name: "Chrome Hearts Glasses Vendor", price: 30 },
+    { id: "shoes", name: "Shoes Vendor", price: 50 },
+    { id: "clothes", name: "Clothes Vendor", price: 35 },
+    { id: "watch", name: "Watch Vendor", price: 45 },
+    { id: "cologne", name: "Cologne Vendor", price: 40 },
+  ];
+
+  const classPackages = [
+    { count: 1, price: 85, label: "+1 Class per week" },
+    { count: 2, price: 120, label: "+2 Classes per week" },
+  ];
+
+  const additionalAddOns = [
+    { id: "website", name: "Custom Website", price: 200, active: websiteParam },
+    { id: "advertisingManagement", name: "Advertising Management", price: 150, active: advertisingManagementParam },
+    { id: "extraCheckup", name: "Extra Weekly Checkup", price: 75, active: extraCheckupParam },
+    { id: "prioritySupport", name: "Priority Support", price: 100, active: prioritySupportParam },
+  ];
 
   const downloadAsImage = async () => {
     if (!summaryRef.current) return;
 
     try {
-      // Dynamically import html2canvas
       const html2canvas = (await import('html2canvas')).default;
 
       const canvas = await html2canvas(summaryRef.current, {
         backgroundColor: '#1e1b4b',
         scale: 2,
-        logging: false, // Disable logging to avoid console warnings
+        logging: false,
         useCORS: true,
       });
 
@@ -38,42 +72,30 @@ export default function CheckoutPage() {
     }
   };
 
-  const vendors = [
-    { id: "technology", name: "Technology Vendor", price: 0 },
-    { id: "chrome-hearts", name: "Chrome Hearts Glasses Vendor", price: 0 },
-    { id: "shoes", name: "Shoes Vendor", price: 50 },
-    { id: "clothes", name: "Clothes Vendor", price: 0 },
-    { id: "watch", name: "Watch Vendor", price: 50 },
-    { id: "cologne", name: "Cologne Vendor", price: 0 },
-  ];
-
-  const courses = {
-    grey: {
-      name: "Course Grey",
-      price: 499,
-    },
-    blue: {
-      name: "Course Blue",
-      price: 799,
-    },
-    gold: {
-      name: "Course Gold",
-      price: 1099,
-    },
-  };
-
-  const selectedCourse = courseParam || "blue";
-
   const calculateTotal = () => {
-    let total = courses[selectedCourse].price;
+    let total = baseCourse.price;
 
-    selectedVendors.forEach((vendorId) => {
-      const vendor = vendors.find((v) => v.id === vendorId);
-      if (vendor) total += vendor.price;
+    // Add vendor costs (first vendor is included, only charge for additional ones)
+    if (selectedVendors.length > 1) {
+      selectedVendors.slice(1).forEach((vendorId) => {
+        const vendor = vendors.find((v) => v.id === vendorId);
+        if (vendor) total += vendor.price;
+      });
+    }
+
+    // Add class package cost
+    if (selectedClasses > 0) {
+      const classPackage = classPackages.find((p) => p.count === selectedClasses);
+      if (classPackage) total += classPackage.price;
+    }
+
+    // Add other add-ons
+    additionalAddOns.forEach((addOn) => {
+      if (addOn.active) {
+        total += addOn.price;
+      }
     });
 
-    if (extraVendorParam) total += 85;
-    if (websiteParam) total += 150;
     return total;
   };
 
@@ -111,29 +133,32 @@ export default function CheckoutPage() {
           </div>
 
           <div className="space-y-4 mb-8">
-            {/* Course */}
+            {/* Base Course */}
             <div className="flex justify-between items-center py-3">
               <div>
-                <p className="text-white font-semibold text-lg">{courses[selectedCourse].name}</p>
-                <p className="text-gray-400 text-sm">Base Course Package</p>
+                <p className="text-white font-semibold text-lg">{baseCourse.name}</p>
+                <p className="text-gray-400 text-sm">
+                  Includes: 1 vendor, 1 call, 2 classes/week, 1 checkup/week
+                </p>
               </div>
-              <p className="text-white font-bold text-xl">${courses[selectedCourse].price}</p>
+              <p className="text-white font-bold text-xl">${baseCourse.price}</p>
             </div>
 
             {/* Vendors */}
             {selectedVendors.length > 0 && (
               <div className="border-t border-purple-500/20 pt-4">
                 <p className="text-purple-300 font-semibold mb-3">Selected Vendors:</p>
-                {selectedVendors.map((vendorId) => {
+                {selectedVendors.map((vendorId, index) => {
                   const vendor = vendors.find((v) => v.id === vendorId);
                   if (!vendor) return null;
+                  const isIncluded = index === 0;
                   return (
                     <div key={vendorId} className="flex justify-between items-center py-2 ml-4">
                       <p className="text-gray-300">{vendor.name}</p>
-                      {vendor.price > 0 ? (
-                        <p className="text-white font-semibold">+${vendor.price}</p>
+                      {isIncluded ? (
+                        <p className="text-green-400 font-semibold">Included</p>
                       ) : (
-                        <p className="text-gray-500 text-sm">Included</p>
+                        <p className="text-white font-semibold">+${vendor.price}</p>
                       )}
                     </div>
                   );
@@ -141,22 +166,34 @@ export default function CheckoutPage() {
               </div>
             )}
 
-            {/* Add-ons */}
-            {(extraVendorParam || websiteParam) && (
+            {/* Classes */}
+            {selectedClasses > 0 && (
               <div className="border-t border-purple-500/20 pt-4">
-                <p className="text-purple-300 font-semibold mb-3">Add-ons:</p>
-                {extraVendorParam && (
-                  <div className="flex justify-between items-center py-2 ml-4">
-                    <p className="text-gray-300">Extra Vendor</p>
-                    <p className="text-white font-semibold">+$85</p>
-                  </div>
-                )}
-                {websiteParam && (
-                  <div className="flex justify-between items-center py-2 ml-4">
-                    <p className="text-gray-300">Custom Website</p>
-                    <p className="text-white font-semibold">+$150</p>
-                  </div>
-                )}
+                <p className="text-purple-300 font-semibold mb-3">Additional Classes:</p>
+                <div className="flex justify-between items-center py-2 ml-4">
+                  <p className="text-gray-300">
+                    +{selectedClasses} Class{selectedClasses > 1 ? 'es' : ''} per week (Total: {2 + selectedClasses}/week)
+                  </p>
+                  <p className="text-white font-semibold">
+                    +${classPackages.find(p => p.count === selectedClasses)?.price}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Additional Add-ons */}
+            {additionalAddOns.some(a => a.active) && (
+              <div className="border-t border-purple-500/20 pt-4">
+                <p className="text-purple-300 font-semibold mb-3">Additional Features:</p>
+                {additionalAddOns.map((addOn) => {
+                  if (!addOn.active) return null;
+                  return (
+                    <div key={addOn.id} className="flex justify-between items-center py-2 ml-4">
+                      <p className="text-gray-300">{addOn.name}</p>
+                      <p className="text-white font-semibold">+${addOn.price}</p>
+                    </div>
+                  );
+                })}
               </div>
             )}
 

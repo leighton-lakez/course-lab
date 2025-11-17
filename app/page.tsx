@@ -67,7 +67,7 @@ export default function Home() {
                 </div>
 
                 <Link
-                  href="/courses/select"
+                  href="/courses/select?plan=premium"
                   className="block w-full text-center py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 text-lg"
                 >
                   Choose Premium
@@ -122,7 +122,7 @@ export default function Home() {
                 </div>
 
                 <Link
-                  href="/courses/select"
+                  href="/courses/select?plan=elite"
                   className="block w-full text-center py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 hover:from-purple-500 hover:via-pink-500 hover:to-purple-600 text-white font-black rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-pink-500/60 text-lg relative overflow-hidden group"
                 >
                   <span className="relative z-10">Choose Elite</span>
