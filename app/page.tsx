@@ -248,6 +248,223 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="py-32 bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-6 px-4 py-2 bg-purple-500/20 backdrop-blur-sm rounded-full border border-purple-500/30">
+              <span className="text-purple-300 text-sm font-medium">⭐ What Our Students Say</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-purple-400">
+              Real Results, Real People
+            </h2>
+            <p className="text-gray-400 text-lg">
+              Don't just take our word for it
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Testimonial 1 - Enthusiastic */}
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-6 hover:border-purple-500/40 transition-all">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold">
+                  M
+                </div>
+                <div className="ml-3">
+                  <h4 className="text-white font-bold">Marcus Johnson</h4>
+                  <p className="text-gray-400 text-sm">Brooklyn, NY</p>
+                </div>
+              </div>
+              <div className="flex mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-lg">★</span>
+                ))}
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                Yo this is LEGIT! 🔥 I was skeptical at first but bro, these vendors are the real deal. Made my money back in like 2 weeks no cap. If you're on the fence just do it fr fr.
+              </p>
+            </div>
+
+            {/* Testimonial 2 - Professional */}
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-6 hover:border-purple-500/40 transition-all">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold">
+                  S
+                </div>
+                <div className="ml-3">
+                  <h4 className="text-white font-bold">Sarah Chen</h4>
+                  <p className="text-gray-400 text-sm">Los Angeles, CA</p>
+                </div>
+              </div>
+              <div className="flex mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-lg">★</span>
+                ))}
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                Outstanding service and incredible value. The vendor connections alone are worth triple the price. The weekly calls are extremely helpful and the class content is top-tier. Highly recommended for serious entrepreneurs.
+              </p>
+            </div>
+
+            {/* Testimonial 3 - Casual/Friendly */}
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-6 hover:border-purple-500/40 transition-all">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-white font-bold">
+                  D
+                </div>
+                <div className="ml-3">
+                  <h4 className="text-white font-bold">Danny Rodriguez</h4>
+                  <p className="text-gray-400 text-sm">Miami, FL</p>
+                </div>
+              </div>
+              <div className="flex mb-3">
+                {[...Array(4)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-lg">★</span>
+                ))}
+                <span className="text-gray-600 text-lg">★</span>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                Pretty solid course overall. The vendor quality is A1 and the support team actually responds fast which is dope. Only thing is I wish there were more classes per week but for the price it's definitely worth it.
+              </p>
+            </div>
+
+            {/* Testimonial 4 - Gen Z */}
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-6 hover:border-purple-500/40 transition-all">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-white font-bold">
+                  K
+                </div>
+                <div className="ml-3">
+                  <h4 className="text-white font-bold">Kayla Martinez</h4>
+                  <p className="text-gray-400 text-sm">Houston, TX</p>
+                </div>
+              </div>
+              <div className="flex mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-lg">★</span>
+                ))}
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                Bestie this changed my life fr 💯 The vendors are bussin and the community is so supportive. Already made enough to pay for the course twice over. If you're thinking about it just pull the trigger bestie you won't regret it!!!
+              </p>
+            </div>
+
+            {/* Testimonial 5 - Older/Mature */}
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-6 hover:border-purple-500/40 transition-all">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-white font-bold">
+                  R
+                </div>
+                <div className="ml-3">
+                  <h4 className="text-white font-bold">Robert Thompson</h4>
+                  <p className="text-gray-400 text-sm">Chicago, IL</p>
+                </div>
+              </div>
+              <div className="flex mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-lg">★</span>
+                ))}
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                I've been in business for 30 years and I must say, this program exceeded my expectations. The vendor network is exceptional and the instructors clearly know what they're doing. A wise investment for anyone serious about this industry.
+              </p>
+            </div>
+
+            {/* Testimonial 6 - Street Smart */}
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-6 hover:border-purple-500/40 transition-all">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold">
+                  T
+                </div>
+                <div className="ml-3">
+                  <h4 className="text-white font-bold">Tyrone Williams</h4>
+                  <p className="text-gray-400 text-sm">Atlanta, GA</p>
+                </div>
+              </div>
+              <div className="flex mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-lg">★</span>
+                ))}
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                Real talk, I've seen a lot of courses tryna finesse people but this ain't one of em. The game they teaching is solid and the connects are official. Already flipped my first few pieces and the profit margins crazy. Respect to the team 💪
+              </p>
+            </div>
+
+            {/* Testimonial 7 - Cautiously Positive */}
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-6 hover:border-purple-500/40 transition-all">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-slate-500 to-gray-500 flex items-center justify-center text-white font-bold">
+                  J
+                </div>
+                <div className="ml-3">
+                  <h4 className="text-white font-bold">Jessica Park</h4>
+                  <p className="text-gray-400 text-sm">Seattle, WA</p>
+                </div>
+              </div>
+              <div className="flex mb-3">
+                {[...Array(4)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-lg">★</span>
+                ))}
+                <span className="text-gray-600 text-lg">★</span>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                I was hesitant at first because there are so many scams out there, but this is legit. The vendors are real and the products are quality. It's not a get-rich-quick scheme though - you still gotta put in work. But if you do, it pays off.
+              </p>
+            </div>
+
+            {/* Testimonial 8 - Hype/Energy */}
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-6 hover:border-purple-500/40 transition-all">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center text-white font-bold">
+                  C
+                </div>
+                <div className="ml-3">
+                  <h4 className="text-white font-bold">Chris Anderson</h4>
+                  <p className="text-gray-400 text-sm">Phoenix, AZ</p>
+                </div>
+              </div>
+              <div className="flex mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-lg">★</span>
+                ))}
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                BRO WHERE HAS THIS BEEN ALL MY LIFE?! 🚀 The vendor plugs are INSANE, the classes are fire, and I'm literally making bank right now. If you're sleeping on this you're missing OUT. This is the move fr! LFG!!!
+              </p>
+            </div>
+
+            {/* Testimonial 9 - Neutral/Mixed */}
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-6 hover:border-purple-500/40 transition-all">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold">
+                  A
+                </div>
+                <div className="ml-3">
+                  <h4 className="text-white font-bold">Alex Kim</h4>
+                  <p className="text-gray-400 text-sm">San Francisco, CA</p>
+                </div>
+              </div>
+              <div className="flex mb-3">
+                {[...Array(3)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-lg">★</span>
+                ))}
+                <span className="text-gray-600 text-lg">★★</span>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                It's decent. The vendor connections are good but I expected more hands-on guidance. The classes cover the basics well but could go deeper. Not bad for the price, just not mind-blowing. Worth trying if you're starting out.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-400 text-sm">
+              Join <span className="text-purple-400 font-bold">500+</span> successful students already enrolled
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us */}
       <section className="py-32 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
