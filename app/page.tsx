@@ -281,7 +281,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-300 leading-relaxed">
-                Yo this is LEGIT! 🔥 I was skeptical at first but bro, these vendors are the real deal. Made my money back in like 2 weeks no cap. If you're on the fence just do it fr fr.
+                yo this is LEGIT fr 🔥 i was mad skeptical at first ngl but bro... these vendors are the real deal. made my money back in like 2 weeks no cap. if ur on the fence just do it trust me
               </p>
             </div>
 
@@ -302,7 +302,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-300 leading-relaxed">
-                Outstanding service and incredible value. The vendor connections alone are worth triple the price. The weekly calls are extremely helpful and the class content is top-tier. Highly recommended for serious entrepreneurs.
+                This exceeded my expectations honestly. The vendor connections alone are worth way more than what I paid. Weekly calls have been super helpful and I'm learning a ton. Would definitely recommend if you're serious about this.
               </p>
             </div>
 
@@ -324,7 +324,7 @@ export default function Home() {
                 <span className="text-gray-600 text-lg">★</span>
               </div>
               <p className="text-gray-300 leading-relaxed">
-                Pretty solid course overall. The vendor quality is A1 and the support team actually responds fast which is dope. Only thing is I wish there were more classes per week but for the price it's definitely worth it.
+                pretty solid course ngl. vendor quality is A1 and support team actually responds fast which is dope lol. only thing is i wish there were more classes per week but for the price its def worth it
               </p>
             </div>
 
@@ -345,7 +345,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-300 leading-relaxed">
-                Bestie this changed my life fr 💯 The vendors are bussin and the community is so supportive. Already made enough to pay for the course twice over. If you're thinking about it just pull the trigger bestie you won't regret it!!!
+                BESTIE THIS CHANGED MY LIFE FR 💯💯 the vendors are bussin and the community is so supportive like omg. already made enough to pay for the course twice over lmaooo. if ur thinking about it just pull the trigger you wont regret it i promise!!!
               </p>
             </div>
 
@@ -366,7 +366,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-300 leading-relaxed">
-                I've been in business for 30 years and I must say, this program exceeded my expectations. The vendor network is exceptional and the instructors clearly know what they're doing. A wise investment for anyone serious about this industry.
+                Been in business for over 30 years and this program really exceeded my expectations. The vendor network is solid and these instructors know their stuff. Smart investment if you're serious about getting into this industry imo
               </p>
             </div>
 
@@ -387,7 +387,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-300 leading-relaxed">
-                Real talk, I've seen a lot of courses tryna finesse people but this ain't one of em. The game they teaching is solid and the connects are official. Already flipped my first few pieces and the profit margins crazy. Respect to the team 💪
+                real talk ive seen alot of courses tryna finesse ppl but this aint one of em. the game they teaching is solid and the connects are official fr. already flipped my first few pieces and the profit margins crazy. respect to the whole team 💪
               </p>
             </div>
 
@@ -409,7 +409,7 @@ export default function Home() {
                 <span className="text-gray-600 text-lg">★</span>
               </div>
               <p className="text-gray-300 leading-relaxed">
-                I was hesitant at first because there are so many scams out there, but this is legit. The vendors are real and the products are quality. It's not a get-rich-quick scheme though - you still gotta put in work. But if you do, it pays off.
+                i was hesitant at first bc there are SO many scams out there... but this is legit. the vendors are real and products are quality. its not a get rich quick thing tho you still gotta put in work. but if you do it pays off for sure
               </p>
             </div>
 
@@ -430,7 +430,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-300 leading-relaxed">
-                BRO WHERE HAS THIS BEEN ALL MY LIFE?! 🚀 The vendor plugs are INSANE, the classes are fire, and I'm literally making bank right now. If you're sleeping on this you're missing OUT. This is the move fr! LFG!!!
+                BRO WHERE HAS THIS BEEN ALL MY LIFE?!?! 🚀🚀 the vendor plugs are INSANE the classes are fire and im literally making bank right now like wtf. if ur sleeping on this ur missing OUT big time. this is the move fr!! LFG!!!!
               </p>
             </div>
 
@@ -452,7 +452,7 @@ export default function Home() {
                 <span className="text-gray-600 text-lg">★★</span>
               </div>
               <p className="text-gray-300 leading-relaxed">
-                It's decent. The vendor connections are good but I expected more hands-on guidance. The classes cover the basics well but could go deeper. Not bad for the price, just not mind-blowing. Worth trying if you're starting out.
+                its decent i guess. vendor connections are good but i expected more hands on guidance tbh. classes cover the basics well but could go deeper imo. not bad for the price just not mind blowing. worth trying if youre starting out tho
               </p>
             </div>
           </div>
