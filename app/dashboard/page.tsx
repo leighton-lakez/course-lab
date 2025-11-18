@@ -36,7 +36,7 @@ export default async function DashboardPage() {
           <h2 className="text-2xl font-bold mb-6">My Courses</h2>
           {enrollments.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {enrollments.map((enrollment) => (
+              {enrollments.map((enrollment: any) => (
                 <div
                   key={enrollment.id}
                   className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
